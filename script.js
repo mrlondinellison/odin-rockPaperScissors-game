@@ -4,15 +4,19 @@ function getComputerChoice() {
 };
 
 function playRound(playerSelection,cpuSelection) {
-    playerSelection = prompt('Rock, Paper or Scissors?: ', '').toLowerCase();
-    cpuSelection = getComputerChoice();
     function uppercase(word) {
         return word.replace(word.charAt(0), word.charAt(0).toUpperCase())
     };
+    playerSelection = prompt('Rock, Paper or Scissors?: ', '').toLowerCase();
+    cpuSelection = getComputerChoice();
     
-    if ((playerSelection === 'rock' && cpuSelection === 'scissors') || (playerSelection === 'paper' && cpuSelection === 'rock') || (playerSelection === 'scissors' && cpuSelection === 'paper')) {
+    if ((playerSelection === 'rock' && cpuSelection === 'scissors') || 
+        (playerSelection === 'paper' && cpuSelection === 'rock') || 
+        (playerSelection === 'scissors' && cpuSelection === 'paper')) {
         return ['w', console.log(`You Won This Round! ${uppercase(playerSelection)} Beats ${uppercase(cpuSelection)}.`)];
-    } else if ((playerSelection === 'scissors' && cpuSelection === 'rock') || (playerSelection === 'rock' && cpuSelection === 'paper') || (playerSelection === 'paper' && cpuSelection === 'scissors')) {
+    } else if ((playerSelection === 'scissors' && cpuSelection === 'rock') || 
+        (playerSelection === 'rock' && cpuSelection === 'paper') || 
+        (playerSelection === 'paper' && cpuSelection === 'scissors')) {
         return ['l', console.log(`You Lost This Round :( ${uppercase(playerSelection)} Cant Beat ${uppercase(cpuSelection)}.`)];
     } else if (playerSelection === cpuSelection) {
         return ['t', console.log('Its a Tie!')];
@@ -24,9 +28,8 @@ function playRound(playerSelection,cpuSelection) {
 function playGame() {
     let playerScore = 0;
     let cpuScore = 0;
-    let roundsPlayed;
     
-    for (roundsPlayed = 1; roundsPlayed <= 5; roundsPlayed += 1) {
+    for (let roundsPlayed = 1; roundsPlayed <= 5; roundsPlayed += 1) {
         let result = playRound()[0];
         if (result == 'w') {
             playerScore += 1; 
@@ -37,8 +40,6 @@ function playGame() {
         };
     
         if (roundsPlayed == 5) {
-            (playerScore == cpuScore) ? 
-            console.log('Game Over, Its a Tie!') : 
             (playerScore > cpuScore) ? 
             console.log('You Win The Game!!') : 
             console.log('You Lost The Game :(');
