@@ -5,7 +5,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection,cpuSelection) {
     function uppercase(word) {
-        return word.replace(word.charAt(0), word.charAt(0).toUpperCase())
+        return word.replace(word.charAt(0), word.charAt(0).toUpperCase());
     };
     playerSelection = prompt('Rock, Paper or Scissors?: ', '').toLowerCase();
     cpuSelection = getComputerChoice();
